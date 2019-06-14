@@ -1,0 +1,30 @@
+# 服务器配置
+server:
+  port: 8081
+
+# 数据库连接
+spring:
+  application:
+    name: wakanda-monitor-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/test_db?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 1qaz2wsx
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  boot:
+    admin:
+      ui:
+        title: "spring-admin-monitor"
+#  boot:
+#    admin:
+#      client:
+#        url: http://localhost:8081
+
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+#  endpoint:
+#    health:
+#      show-details: ALWAYS
