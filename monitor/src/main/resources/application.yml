@@ -1,20 +1,27 @@
 # 服务器配置
 server:
   port: 8081
+  address: 127.0.0.1
 
 # 数据库连接
 spring:
   application:
     name: wakanda-monitor-service
-  datasource:
-    url: jdbc:mysql://localhost:3306/test_db?useUnicode=true&characterEncoding=UTF-8&useSSL=false
-    username: root
-    password: 1qaz2wsx
-    driver-class-name: com.mysql.cj.jdbc.Driver
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/test_db?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+#    username: root
+#    password: 1qaz2wsx
+#    driver-class-name: com.mysql.cj.jdbc.Driver
   boot:
     admin:
       ui:
         title: "spring-admin-monitor"
+  #special tuning for AsyncRequestTimeoutException and uri=/api/journal?stream
+  #issue https://github.com/codecentric/spring-boot-admin/issues/317 and https://jira.spring.io/browse/SPR-14739
+  #workaround https://github.com/codecentric/spring-boot-admin/issues/286
+  mvc:
+    async:
+      request-timeout: -1
 #  boot:
 #    admin:
 #      client:
@@ -28,3 +35,7 @@ spring:
 #  endpoint:
 #    health:
 #      show-details: ALWAYS
+
+logging:
+  level:
+    root: INFO

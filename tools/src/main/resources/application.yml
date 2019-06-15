@@ -1,5 +1,6 @@
 server:
   port: 8080
+  address: 127.0.0.1
 
 # 数据库连接
 spring:
@@ -13,7 +14,7 @@ spring:
   boot:
     admin:
       client:
-        url: "http://localhost:8081"
+        url: http://localhost:8081
 
 management:
   endpoints:
